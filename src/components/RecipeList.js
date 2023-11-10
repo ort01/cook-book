@@ -3,6 +3,11 @@ import './RecipeList.scss'
 import { Link } from 'react-router-dom'
 
 export default function RecipeList({ recipes }) {
+
+    if (!recipes.length) {
+        return <div className='error'>No recipes to be shown...</div>
+    }
+
     return (
         <div className='recipe-list'>
             {recipes.map((recipe) => (
