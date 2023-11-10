@@ -6,8 +6,8 @@ export default function RecipeList({ recipes }) {
     return (
         <div className='recipe-list'>
             {recipes.map((recipe) => (
-                <Link to={`/recipes/${recipe.id}`}>
-                    <div key={recipe.id} className='recipe-list__card'>
+                <Link key={recipe.id} to={`/recipes/${recipe.id}`}>
+                    <div className='recipe-list__card'>
                         <h3 >{recipe.title}</h3>
                         <p>{recipe.cookingTime} to make.</p>
                         <div className='recipe-list__method'>
