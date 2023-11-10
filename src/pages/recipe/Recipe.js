@@ -20,7 +20,7 @@ export default function Recipe() {
                 <div className="recipe__time">{recipe.cookingTime}</div>
                 <ul className="recipe__items">
                     {recipe.ingredients.map((item) => (
-                        <li>{item}</li>
+                        <li key={item}>{item}</li>
                     ))}
                 </ul>
 

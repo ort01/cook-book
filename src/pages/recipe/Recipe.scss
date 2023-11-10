@@ -1,7 +1,7 @@
 .recipe {
     background-color: #fff;
     margin: 50px auto;
-    max-width: 50%;
+    max-width: 45%;
     min-height: 300px;
     border-radius: 4px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
@@ -10,9 +10,28 @@
     display: grid;
     grid-template-columns: 5% [main-start] repeat(3, [col-start] 1fr [col-end]) [main-end] 5%;
     align-items: center;
+    row-gap: 20px;
 
     &__title {
-        grid-column: main-start / span 1;
+        grid-column: main-start / span 2;
+        margin-top: 10px;
+        position: relative;
+        display: inline-block;
+        z-index: 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 120%;
+            display: block;
+            background-color: rgb(203, 203, 203);
+            z-index: -1;
+            padding-right: 40px;
+            left: -30px;
+            transform: rotateZ(-1deg);
+            border-radius: 5px;
+        }
     }
 
     &__time {
@@ -23,6 +42,7 @@
 
     &__items {
         grid-column: 2 / 3;
+        list-style-type: circle;
     }
 
     &__method {

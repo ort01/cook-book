@@ -1,0 +1,49 @@
+.create {
+    color: #555;
+    max-width: 480px;
+    margin: 60px auto;
+
+    & span {
+        display: block;
+        margin: 30px 0 10px;
+    }
+
+    & p {
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__ingredients {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &--btn {
+            border: none;
+            font-size: 20px;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #64ccc5;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+
+    &__btn {
+        display: block;
+        border: none;
+        font-size: 1em;
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 4px;
+        background-color: #64ccc5;
+        cursor: pointer;
+        text-decoration: none;
+        margin: 20px auto;
+    }
+}
