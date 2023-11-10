@@ -1,28 +1,25 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useHistory } from "react-router-dom";
+
 import "./Create.scss"
 import { useFetch } from "../../hooks/useFetch"
 
 
 export default function Create() {
+    //states
     const [title, setTitle] = useState('')
     const [method, setMethod] = useState('')
     const [cookingTime, setCookingTime] = useState('')
     const [newIngredient, setnewIngredient] = useState('')
     const [ingredients, setIngredients] = useState([])
+    //refs
     const ingredientInput = useRef(null)
+    //composable / custom hook
+    const { postData, data } = useFetch("http://localhost:3000/recipes", "POST")
+    //router
+    const history = useHistory()
 
-    const { postData } = useFetch("http://localhost:3000/recipes", "POST")
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        postData({
-            title: title,
-            ingredients: ingredients,
-            method: method,
-            cookingTime: cookingTime + "minutes"
-        })
-    }
-
+    //functions
     const handleAdd = (e) => {
         e.preventDefault()
         const newItem = newIngredient.trim()
@@ -37,7 +34,25 @@ export default function Create() {
         ingredientInput.current.focus()
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        postData({
+            title: title,
+            ingredients: ingredients,
+            method: method,
+            cookingTime: `${cookingTime} minutes`
+        })
+    }
+    //user redirect
+    useEffect(() => {
+        if (data) {
+            history.push("/")
+        }
+    }, [data, history])
 
+
+
+    //html
     return (
         <div className="create">
             <h2 className="create__title">Add a New Recipe</h2>
