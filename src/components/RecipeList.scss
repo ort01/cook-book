@@ -31,6 +31,17 @@
             color: #999;
             font-size: 0.9em;
         }
+
+        //dark mode
+        &.dark {
+            background-color: #555;
+
+            & p,
+            & h3,
+            & div {
+                color: #fff;
+            }
+        }
     }
 
     &__method {

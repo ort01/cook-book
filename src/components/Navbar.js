@@ -11,17 +11,17 @@ import ThemeSelector from "./ThemeSelector"
 
 export default function Navbar() {
 
-    const { color } = useThemeContext()
+    const { color, mode } = useThemeContext()
 
     return (
-        <div className='navbar' style={{ background: color }}>
+        <div className={`navbar ${mode}`} style={{ background: color }}>
             <nav >
                 <Link to="/" className='navbar__brand'>
                     <h1 >Cook Book</h1>
                 </Link>
                 <ThemeSelector />
                 <Searchbar />
-                <Link to="/create">
+                <Link to="/create" className={mode}>
                     Create Recipe
                 </Link>
             </nav>

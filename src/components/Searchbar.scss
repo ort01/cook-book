@@ -14,10 +14,20 @@
         &:focus {
             outline: none;
         }
+
+        &.dark {
+            background-color: #555;
+            color: #fff;
+            border: #555;
+        }
     }
 
     & label {
         margin: 5px 0 0 5px;
+
+        &.dark {
+            color: #555;
+        }
     }
 }
 

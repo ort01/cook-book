@@ -18,6 +18,10 @@
             &:hover {
                 transform: translateY(-4px);
             }
+
+            &.dark {
+                border: 1px solid #333;
+            }
         }
     }
 

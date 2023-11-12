@@ -21,7 +21,7 @@ export default function ThemeSelector() {
                 {themeColors.map((color) => (
                     <div
                         key={color}
-                        className="selector__theme--color"
+                        className={`selector__theme--color ${mode}`}
                         style={{ background: color }}
                         onClick={() => {
                             changeColor(color)
@@ -33,7 +33,7 @@ export default function ThemeSelector() {
                     src={modeIcon}
                     alt="mode-icon"
                     onClick={toggleMode}
-                    style={{ filter: mode === "light" ? "invert(100%)" : null }}
+                    style={{ filter: mode === "dark" ? "invert(100%)" : null }}
                 />
             </div>
         </div>

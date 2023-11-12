@@ -46,4 +46,15 @@
         text-decoration: none;
         margin: 20px auto;
     }
+
+    //dark mode
+    &.dark {
+        color: #fff;
+
+        & input,
+        & textarea {
+            background-color: #555;
+            color: #fff;
+        }
+    }
 }

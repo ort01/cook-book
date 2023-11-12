@@ -6,6 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { useThemeContext } from './hooks/useThemeContext';
 
 //routes
 import Home from './pages/home/Home'
@@ -16,8 +17,11 @@ import Navbar from './components/Navbar';
 
 
 function App() {
+
+  const { mode } = useThemeContext()
+
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <Router>
         <Navbar />
         <Switch>

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import "./Create.scss"
 import { useFetch } from "../../hooks/useFetch"
+import { useThemeContext } from "../../hooks/useThemeContext";
 
 
 export default function Create() {
@@ -16,6 +17,7 @@ export default function Create() {
     const ingredientInput = useRef(null)
     //composable / custom hook
     const { postData, data } = useFetch("http://localhost:3000/recipes", "POST")
+    const { mode, color } = useThemeContext()
     //router
     const history = useHistory()
 
@@ -54,7 +56,7 @@ export default function Create() {
 
     //html
     return (
-        <div className="create">
+        <div className={`create ${mode}`}>
             <h2 className="create__title">Add a New Recipe</h2>
             <form className="create__form" onSubmit={handleSubmit}>
                 <label>
@@ -76,7 +78,12 @@ export default function Create() {
                             onChange={(e) => { setnewIngredient(e.target.value) }}
                             ref={ingredientInput}
                         />
-                        <button className="create__ingredients--btn" onClick={handleAdd}>+</button>
+                        <button
+                            className="create__ingredients--btn"
+                            style={{ background: color }}
+                            onClick={handleAdd}>
+                            +
+                        </button>
                     </div>
                 </label>
                 {ingredients && ingredients.map((item) => (
@@ -100,7 +107,7 @@ export default function Create() {
                         required
                     />
                 </label>
-                <button className="create__btn">Submit</button>
+                <button className="create__btn" style={{ background: color }}>Submit</button>
             </form>
         </div>
     )

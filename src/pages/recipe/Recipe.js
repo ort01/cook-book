@@ -12,13 +12,13 @@ export default function Recipe() {
 
     const { data: recipe, error, isPending } = useFetch(url)
 
-    const { color } = useThemeContext()
+    const { color, mode } = useThemeContext()
 
     return (
         <div>
             {error && <p className="error">{error}</p>}
             {isPending && <p>Loading...</p>}
-            {recipe && <div className="recipe">
+            {recipe && <div className={`recipe ${mode}`}>
                 <h2 className="recipe__title" style={{ borderBottomColor: color }}>{recipe.title}</h2>
                 <div className="recipe__time">{recipe.cookingTime}</div>
                 <ul className="recipe__items">
