@@ -18,14 +18,15 @@
         position: relative;
         display: inline-block;
         z-index: 0;
+        color: #fff;
 
         &::before {
             content: "";
             position: absolute;
-            width: 70%;
+            width: 60%;
             height: 120%;
             display: block;
-            background-color: rgb(203, 203, 203);
+            background-color: #64ccc5d7;
             z-index: -1;
             padding-right: 40px;
             left: -30px;
