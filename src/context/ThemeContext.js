@@ -18,7 +18,7 @@ const themeReducer = (state, action) => { // two arguments: 1. current up to dat
 export function ThemeContextProvider({ children }) { // children prop represents any children COMPONENTS that the THemeProvider component wraps
 
 
-    const [state, dispatch] = useReducer(themeReducer, { color: "blue" }) // 1. argument - reducerFunction for updating the state; 2.argument - initial state
+    const [state, dispatch] = useReducer(themeReducer, { color: "#4297a0" }) // 1. argument - reducerFunction for updating the state; 2.argument - initial state
 
     const changeColor = (color) => {
         //dispatch - is a way that we can dispatch (send) state change to the reducer function (themeReducer)

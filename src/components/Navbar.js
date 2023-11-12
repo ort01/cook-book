@@ -5,19 +5,21 @@ import { useThemeContext } from "../hooks/useThemeContext"
 import "./Navbar.scss"
 //components
 import Searchbar from "../components/Searchbar"
+import ThemeSelector from "./ThemeSelector"
 
 
 
 export default function Navbar() {
 
-    const { color, changeColor } = useThemeContext()
+    const { color } = useThemeContext()
 
     return (
         <div className='navbar' style={{ background: color }}>
-            <nav onClick={() => changeColor("pink")}>
+            <nav >
                 <Link to="/" className='navbar__brand'>
                     <h1 >Cook Book</h1>
                 </Link>
+                <ThemeSelector />
                 <Searchbar />
                 <Link to="/create">
                     Create Recipe

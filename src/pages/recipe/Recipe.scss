@@ -18,21 +18,8 @@
         position: relative;
         display: inline-block;
         z-index: 0;
-        color: #fff;
-
-        &::before {
-            content: "";
-            position: absolute;
-            width: 60%;
-            height: 120%;
-            display: block;
-            background-color: #64ccc5d7;
-            z-index: -1;
-            padding-right: 40px;
-            left: -30px;
-            transform: rotateZ(-1deg);
-            border-radius: 5px;
-        }
+        border-bottom: 5px solid #4297a0;
+        padding-bottom: 5px;
     }
 
     &__time {

@@ -1,6 +1,7 @@
 import "./Recipe.scss"
 import { useParams } from 'react-router-dom'
 import { useFetch } from "../../hooks/useFetch"
+import { useThemeContext } from "../../hooks/useThemeContext"
 
 
 
@@ -11,12 +12,14 @@ export default function Recipe() {
 
     const { data: recipe, error, isPending } = useFetch(url)
 
+    const { color } = useThemeContext()
+
     return (
         <div>
             {error && <p className="error">{error}</p>}
             {isPending && <p>Loading...</p>}
             {recipe && <div className="recipe">
-                <h2 className="recipe__title">{recipe.title}</h2>
+                <h2 className="recipe__title" style={{ borderBottomColor: color }}>{recipe.title}</h2>
                 <div className="recipe__time">{recipe.cookingTime}</div>
                 <ul className="recipe__items">
                     {recipe.ingredients.map((item) => (
