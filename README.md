@@ -15,4 +15,4 @@ Main goal of this project was to practice technologies listed down below.
 - Example `json-server` backend
 
 ## Deployed app
-
+https://cook-book-pq1nyelan-ort01.vercel.app/ (requires a JSON server running locally with [`./data/db.json`](https://github.com/ort01/cook-book/blob/main/data/db.json))
