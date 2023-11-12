@@ -38,13 +38,20 @@
       "cookingTime": "35 minutes"
     },
     {
-      "title": "sdfsdf",
+      "title": "Mushroom Soup",
       "ingredients": [
-        "sdf"
+        "mushrooms",
+        "salt",
+        "pepper",
+        "water",
+        "thyme",
+        "butter",
+        "shallots",
+        "garlic"
       ],
-      "method": "sdfsdfs",
-      "cookingTime": "21 minutes",
-      "id": "N5JUwOn"
+      "method": "Put the ingredients together, boil for few hours and enjoy\n",
+      "cookingTime": "120 minutes",
+      "id": "-td-uXb"
     }
   ]
 }

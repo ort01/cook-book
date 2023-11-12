@@ -87,7 +87,7 @@ export default function Create() {
                     </div>
                 </label>
                 {ingredients && ingredients.map((item) => (
-                    <em key={item}>{item}, </em>
+                    <em key={item} className="create__ingredients--item">{item}, </em>
                 ))}
 
                 <label >
