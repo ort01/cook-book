@@ -1,18 +1,18 @@
 import "./Recipe.scss"
 import { useParams } from 'react-router-dom'
-import { useFetch } from "../../hooks/useFetch"
 import { useThemeContext } from "../../hooks/useThemeContext"
 
 
+//firestore
+import { useDocument } from "../../hooks/useDocument"
 
 export default function Recipe() {
 
     const { id } = useParams() //geting the dynamic route parameter (:id) from url
-    const url = `http://localhost:3000/recipes/${id}`
-
-    const { data: recipe, error, isPending } = useFetch(url)
-
     const { color, mode } = useThemeContext()
+
+    const { data: recipe, error, isPending } = useDocument("recipes", id)
+
 
     return (
         <div>
@@ -22,7 +22,7 @@ export default function Recipe() {
                 <h2 className="recipe__title" style={{ borderBottomColor: color }}>{recipe.title}</h2>
                 <div className="recipe__time">{recipe.cookingTime}</div>
                 <ul className="recipe__items">
-                    {recipe.ingredients.map((item) => (
+                    {recipe.ingredients && recipe.ingredients.map((item) => (
                         <li key={item}>{item}</li>
                     ))}
                 </ul>

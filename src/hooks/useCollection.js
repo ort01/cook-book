@@ -16,24 +16,22 @@ export const useCollection = (collectionName) => {
 
         const unsub = onSnapshot(colRef, (snapshot) => {
             try {
-                getDocs(colRef).then((snapshot) => { // getDocs() - getting the documents from the collection
+                if (!snapshot.empty) {
+                    let results = []
+                    const res = snapshot.docs // storing data from the snapshot
 
-                    if (!snapshot.empty) {
-                        let results = []
-                        const res = snapshot.docs // storing data from the snapshot
+                    res.forEach((doc) => {
+                        results.push({ id: doc.id, ...doc.data() })
+                    })
 
-                        res.forEach((doc) => {
-                            results.push({ id: doc.id, ...doc.data() })
-                        })
+                    setData(results)
+                    setIsPending(false)
+                    setError(null)
+                } else {
+                    setError("No recipes to load")
+                    setIsPending(false)
+                }
 
-                        setData(results)
-                        setIsPending(false)
-                        setError(null)
-                    } else {
-                        setError("No recipes to load")
-                        setIsPending(false)
-                    }
-                })
             }
             catch (err) {
                 setError(err.message)
@@ -42,7 +40,7 @@ export const useCollection = (collectionName) => {
         })
 
         return () => unsub()
-    }, [])
+    }, [collectionName])
 
     return { data, error, isPending }
 }
