@@ -4,7 +4,7 @@ import { useThemeContext } from "../hooks/useThemeContext"
 //styles
 import "./Navbar.scss"
 //components
-import Searchbar from "../components/Searchbar"
+import Searchbar from "./Searchbar"
 import ThemeSelector from "./ThemeSelector"
 
 

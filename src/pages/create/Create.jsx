@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Create.scss"
 import { useFetch } from "../../hooks/useFetch"
@@ -19,7 +19,7 @@ export default function Create() {
     const { postData, data } = useFetch("http://localhost:3000/recipes", "POST")
     const { mode, color } = useThemeContext()
     //router
-    const history = useHistory()
+    const navigate = useNavigate()
 
     //functions
     const handleAdd = (e) => {
@@ -48,9 +48,9 @@ export default function Create() {
     //user redirect
     useEffect(() => {
         if (data) {
-            history.push("/")
+            navigate("/")
         }
-    }, [data, history])
+    }, [data, navigate])
 
 
 
