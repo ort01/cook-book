@@ -13,7 +13,8 @@ export const useDocument = (collectionName, id) => {
 
         setIsPending(true)
 
-        const docRef = doc(db, collectionName, id);
+        const docRef = doc(db, collectionName, id); //getting the document reference thoru doc(); 
+        // 1. - database we are connecting to, 2. - collection name, 3.- document ID
 
         const unsub = onSnapshot(docRef, (docSnap) => {
             if (docSnap.data()) {

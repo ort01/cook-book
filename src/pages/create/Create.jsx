@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react"
 
 import "./Create.scss"
-import { useFetch } from "../../hooks/useFetch"
+import { useAdd } from "../../hooks/useAdd"
 import { useThemeContext } from "../../hooks/useThemeContext";
 
 
@@ -16,10 +15,9 @@ export default function Create() {
     //refs
     const ingredientInput = useRef(null)
     //composable / custom hook
-    const { postData, data } = useFetch("http://localhost:3000/recipes", "POST")
+    const { addDocument } = useAdd("recipes")
     const { mode, color } = useThemeContext()
-    //router
-    const navigate = useNavigate()
+
 
     //functions
     const handleAdd = (e) => {
@@ -38,21 +36,13 @@ export default function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        postData({
-            title: title,
+        addDocument({
+            title: title.toUpperCase(),
             ingredients: ingredients,
             method: method,
             cookingTime: `${cookingTime} minutes`
         })
     }
-    //user redirect
-    useEffect(() => {
-        if (data) {
-            navigate("/")
-        }
-    }, [data, navigate])
-
-
 
     //html
     return (
