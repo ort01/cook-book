@@ -14,7 +14,7 @@
         }
 
         &.dark input,
-        textarea {
+        &.dark textarea {
             background-color: #555;
             color: #fff;
         }
@@ -38,7 +38,13 @@
 
         &--item {
             padding-top: 15px;
-            font-size: 15px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                opacity: 0.5;
+            }
 
             &.dark {
                 color: #fff;

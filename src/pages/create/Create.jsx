@@ -34,6 +34,13 @@ export default function Create() {
         ingredientInput.current.focus()
     }
 
+    const deleteIngredient = (item) => {
+        const filter = ingredients.filter((i) => {
+            return i !== item
+        })
+        setIngredients(filter)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         addDocument({
@@ -77,7 +84,7 @@ export default function Create() {
                     </div>
                 </label>
                 {ingredients && ingredients.map((item) => (
-                    <em key={item} className="create__ingredients--item">{item}, </em>
+                    <em key={item} className="create__ingredients--item" onClick={() => deleteIngredient(item)}>{item}, </em>
                 ))}
 
                 <label >

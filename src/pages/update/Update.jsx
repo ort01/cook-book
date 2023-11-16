@@ -28,7 +28,7 @@ export default function Update() {
 
 
     useEffect(() => {
-        console.log(recipe)
+
         if (recipe) {
             setRecipeObject({
                 title: recipe.title.toUpperCase(),
@@ -50,6 +50,13 @@ export default function Update() {
 
         setnewIngredient("")
         ingredientInput.current.focus()
+    }
+
+    const deleteIngredient = (item) => {
+        const filter = recipeObject.ingredients.filter((i) => {
+            return i !== item
+        })
+        setRecipeObject((prevState) => ({ ...prevState, ingredients: filter }))
     }
 
 
@@ -90,7 +97,7 @@ export default function Update() {
                         </button>
                     </div>
                     {recipeObject.ingredients && recipeObject.ingredients.map((item) => (
-                        <em key={item} className={`update__ingredients--item ${mode}`}>{item}, </em>
+                        <em key={item} className={`update__ingredients--item ${mode}`} onClick={() => deleteIngredient(item)}>{item}, </em>
                     ))}
                 </label>
                 <label >
