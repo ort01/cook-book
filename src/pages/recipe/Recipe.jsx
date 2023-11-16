@@ -23,7 +23,7 @@ export default function Recipe() {
     return (
         <div>
             {error && <p className="error">{error}</p>}
-            {isPending && <p>Loading...</p>}
+            {isPending && <p className="loading">Loading...</p>}
             {recipe && <div className={`recipe ${mode}`}>
                 <h2 className="recipe__title" style={{ borderBottomColor: color }}>{recipe.title}</h2>
                 <div className="recipe__time">{`${recipe.cookingTime} minutes`}</div>
