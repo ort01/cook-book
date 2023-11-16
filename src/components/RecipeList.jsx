@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useThemeContext } from '../hooks/useThemeContext'
 import { useDelete } from '../hooks/useDelete'
 import deleteIcon from "../assets/delete.svg"
-import editIcon from "../assets/edit.svg"
 
 
 export default function RecipeList({ recipes }) {
@@ -25,7 +24,7 @@ export default function RecipeList({ recipes }) {
                         <Link to={`/recipes/${recipe.id}`}>
                             <div>
                                 <h3 >{recipe.title}</h3>
-                                <p>{recipe.cookingTime} to make.</p>
+                                <p>{recipe.cookingTime} minutes to make.</p>
                                 <div className='recipe-list__method'>
                                     {recipe.method.substring(0, 100)}...
                                 </div>
@@ -33,7 +32,6 @@ export default function RecipeList({ recipes }) {
                         </Link>
                     </div>
                     <img src={deleteIcon} alt="trashcan" className='recipe-list__delete' onClick={() => { deleteDocument(recipe.id) }} />
-                    <img src={editIcon} alt="trashcan" className='recipe-list__edit' onClick={() => { }} />
                 </div>
 
 

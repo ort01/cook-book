@@ -40,7 +40,7 @@ export default function Create() {
             title: title.toUpperCase(),
             ingredients: ingredients,
             method: method,
-            cookingTime: `${cookingTime} minutes`
+            cookingTime: cookingTime
         })
     }
 
@@ -86,6 +86,7 @@ export default function Create() {
                         onChange={(e) => { setMethod(e.target.value) }}
                         value={method}
                         required
+                        className="create__method"
                     />
                 </label>
                 <label >

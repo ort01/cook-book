@@ -56,11 +56,11 @@
         line-height: 1.5em;
     }
 
-    &__delete,
-    &__edit {
+    &__delete {
         display: inline-block;
         position: absolute;
-        z-index: 5;
+        bottom: 10px;
+        right: 10px;
         filter: invert(70%);
         cursor: pointer;
         transition: all 0.2s;
@@ -69,14 +69,5 @@
             transform: scale(1.1);
             filter: invert(40%);
         }
-    }
-
-    &__delete {
-        bottom: 10px;
-        right: 10px;
-    }
-    &__edit {
-        bottom: 10px;
-        left: 10px;
     }
 }
